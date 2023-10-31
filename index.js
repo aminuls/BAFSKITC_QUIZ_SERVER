@@ -44,8 +44,8 @@ async function run() {
       });
       app.post("/answer", async (req, res) => {
          const answer = req.body;
-         const options = { ordered: true };
-         const result = await answersCollection.insertMany(answer, options);
+         // const options = { ordered: true };
+         const result = await answersCollection.insertMany(answer);
          res.send(result);
       });
    } finally {
