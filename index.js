@@ -48,6 +48,13 @@ async function run() {
          const result = await answersCollection.insertOne(answer);
          res.send(result);
       });
+      app.get("/answer", async (req, res) => {
+         const query = {};
+         const options = { projection: { _id: 0, details: {email: 1} } };
+         const cursor = answersCollection.find(query, options)
+         const result = await cursor.toArray();
+         res.send(result )
+      });
    } finally {
       // await client.close();
    }
