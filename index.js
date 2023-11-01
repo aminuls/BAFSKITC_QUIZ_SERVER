@@ -50,10 +50,10 @@ async function run() {
       });
       app.get("/answer", async (req, res) => {
          const query = {};
-         const options = { projection: { _id: 0, details: {email: 1} } };
-         const cursor = answersCollection.find(query, options)
+         const options = { projection: { _id: 0, details: { email: 1 } } };
+         const cursor = answersCollection.find(query, options);
          const result = await cursor.toArray();
-         res.send(result )
+         res.send(result);
       });
    } finally {
       // await client.close();
