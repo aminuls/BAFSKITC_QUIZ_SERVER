@@ -42,6 +42,12 @@ async function run() {
          const result = await usersCollection.insertOne(user);
          res.send(result);
       });
+      // test
+      /*  app.get("/delete", async (req, res) => {
+         const query = {};
+         const result = await answersCollection.deleteMany(query);
+         res.send(result);
+      }); */
       app.post("/answer", async (req, res) => {
          const answer = req.body;
          console.log(answer);
